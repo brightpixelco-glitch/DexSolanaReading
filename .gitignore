@@ -1,0 +1,7 @@
+.pyc
+__pycache__/
+*.log
+.env
+paper_trades.db
+*.xlsx
+config.yaml
