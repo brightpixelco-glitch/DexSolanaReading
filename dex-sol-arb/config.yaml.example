@@ -1,0 +1,54 @@
+rpc:
+  endpoint: "https://api.mainnet-beta.solana.com"
+  # To switch to a paid RPC later, change the endpoint:
+  # endpoint: "https://mainnet.helius-rpc.com/?api-key=YOUR_KEY"
+  ws_endpoint: "wss://api.mainnet-beta.solana.com"
+
+wallet:
+  # Path to the keypair JSON file (or base58 private key)
+  keypair_path: "~/.config/solana/id.json"
+  # Minimum SOL balance to keep in wallet
+  min_sol_balance: 0.1
+
+arbitrage:
+  # Strategies to scan for - both will run unless disabled
+  enable_cross_dex: true
+  enable_multi_pair: true  # SOL -> A -> B -> SOL routing
+
+  # Minimum profit thresholds (in SOL, after fees)
+  min_profit_sol: 0.001
+  min_profit_percent: 0.5
+
+  # Trade size limits
+  max_trade_sol: 5.0
+  min_trade_sol: 0.1
+
+  # Slippage tolerance (percent)
+  slippage_bps: 100  # 1%
+
+  # Priority fee (microLamports per compute unit)
+  priority_fee: 5000
+
+  # Cooldown between scans (seconds)
+  scan_interval: 3.0
+
+dexes:
+  raydium:
+    enabled: true
+    program_id: "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8"
+  orca:
+    enabled: true
+    program_id: "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+  meteora:
+    enabled: true
+    dlmm_program_id: "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo"
+    pamm_program_id: "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"
+
+pumpfun:
+  program_id: "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
+  # Only scan tokens created in the last N minutes
+  max_token_age_minutes: 60
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING
+  file: "logs/arb.log"
